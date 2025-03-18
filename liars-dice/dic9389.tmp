@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://bl7av5wiuxxt"]
+
+[ext_resource type="Script" path="res://dice.gd" id="1_amxts"]
+[ext_resource type="Texture2D" uid="uid://cfil7155o72wo" path="res://Dice/PixelDice_White.png" id="2_olbok"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8dnt"]
+atlas = ExtResource("2_olbok")
+region = Rect2(0, 140, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_634gy"]
+atlas = ExtResource("2_olbok")
+region = Rect2(0, 140, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn7co"]
+atlas = ExtResource("2_olbok")
+region = Rect2(28, 140, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oclwl"]
+atlas = ExtResource("2_olbok")
+region = Rect2(56, 140, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra1qq"]
+atlas = ExtResource("2_olbok")
+region = Rect2(84, 140, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn1yo"]
+atlas = ExtResource("2_olbok")
+region = Rect2(112, 140, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3f73"]
+atlas = ExtResource("2_olbok")
+region = Rect2(140, 140, 28, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dblop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8dnt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_634gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn7co")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oclwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra1qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn1yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3f73")
+}],
+"loop": true,
+"name": &"throw",
+"speed": 20.0
+}]
+
+[node name="Dice" type="Node2D"]
+position = Vector2(207, 134)
+script = ExtResource("1_amxts")
+metadata/_edit_group_ = true
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8, 8)
+scale = Vector2(1.57143, 1.57143)
+sprite_frames = SubResource("SpriteFrames_dblop")
+animation = &"throw"
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
