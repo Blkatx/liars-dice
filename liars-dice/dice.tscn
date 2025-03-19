@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bl7av5wiuxxt"]
 
-[ext_resource type="Script" path="res://dice.gd" id="1_amxts"]
+[ext_resource type="Script" uid="uid://dmgg7v8kl0u32" path="res://dice.gd" id="1_amxts"]
 [ext_resource type="Texture2D" uid="uid://cfil7155o72wo" path="res://Dice/PixelDice_White.png" id="2_olbok"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1r5xe"]
