@@ -138,7 +138,6 @@ animations = [{
 }]
 
 [node name="Dice" type="Node2D"]
-position = Vector2(207, 134)
 script = ExtResource("1_amxts")
 metadata/_edit_group_ = true
 
