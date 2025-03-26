@@ -7,3 +7,4 @@
  - Modificadores dos dados (Balatro, uno etc)
  - Programar bots;
  - Implementar regras e jogadas impossíveis;
+ - Utilizar giroscopio(?) do celular para sacudir os dados;
