@@ -1,8 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 
-/*
-!/uid_cache.bin
+# These file paths are not in the Godot project itsel, they are not working
+#/* ## THIS ONE JUST BREAKS STUFF, KEEPS US FROM ADDING NEW FILES
+#!/uid_cache.bin
 
 # Godot-specific ignores
 .import/
