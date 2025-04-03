@@ -27,7 +27,6 @@ func _input(event):
 		print(results)
 
 func position_dice():
-	var space
 	## For now two dice per row;
 	for i in range(tray.size()):
 		## (numero do dado % numero de colunas) * (lagura da bandeja / (numero de dados/ ???))

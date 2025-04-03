@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://db6eele33vnlr"]
+
+[ext_resource type="Texture2D" uid="uid://byq38hedylpcy" path="res://Images/TempPlayer.tres" id="1_0dkbx"]
+[ext_resource type="Script" uid="uid://cpugstd0i6edk" path="res://Resources/enemy_player_script.gd" id="1_pxnch"]
+[ext_resource type="Texture2D" uid="uid://bfwn33usert3l" path="res://Images/TempCup.tres" id="2_pxnch"]
+
+[node name="EnemyPlayer" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_pxnch")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(10, 10)
+texture = ExtResource("1_0dkbx")
+
+[node name="TextureRect2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 24)
+scale = Vector2(3, 3)
+texture = ExtResource("2_pxnch")
