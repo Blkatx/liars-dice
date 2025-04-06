@@ -14,6 +14,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xcxc6")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -73.0
+offset_right = 420.0
+offset_bottom = -50.0
+text = "Enter your name:"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = -49.0
+offset_right = 420.0
+offset_bottom = -18.0
+placeholder_text = "My Name"
+alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -34,5 +49,8 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
 text = "Join Game"
 
+[connection signal="text_change_rejected" from="LineEdit" to="." method="_on_line_edit_text_change_rejected"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_join_pressed"]

@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 const ENEMY_PLAYER_SCN:PackedScene = preload("res://Resources/enemy_player.tscn")
@@ -9,16 +9,13 @@ const ENEMY_PLAYER_SCN:PackedScene = preload("res://Resources/enemy_player.tscn"
 func spawn_enemy(player_name:String = "",id:int = 0)->void:
 	var id_match = get_children().filter(func(enemy:EnemyPlayer): return enemy.id == id)
 	if !id_match.is_empty():
-		push_error("ID already found")
+		#push_error("ID:%s already found" %str(id))
+		return
 	var instance:EnemyPlayer = ENEMY_PLAYER_SCN.instantiate()
-	if !player_name.is_empty():
-		instance.name = player_name
-	else:
-		instance.name = "ID %d" %id
+	instance.name = str(id)
 	instance.id = id
 	instance.player_name = player_name
 	add_child(instance)
-	position_enemies()
 
 func remove_enemy(id:int)->void:
 	var id_match = get_children().filter( func(enemy:EnemyPlayer): return enemy.id == id)
@@ -28,14 +25,7 @@ func remove_enemy(id:int)->void:
 		node.queue_free()
 
 
-func position_enemies()->void:
-	var enemies:Array[Node] = get_children()
-	var count:int = get_child_count()
-	for i in range(count):
-		var pos = ((i/float(count)) * arena_width)
-		enemies[i].position.x = pos
 
 
 func _on_child_entered_tree(_node: Node) -> void:
 	print("new node name is " + _node.name)
-	position_enemies()

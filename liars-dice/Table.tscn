@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://p32cqge2kmfr"]
+[gd_scene load_steps=6 format=3 uid="uid://p32cqge2kmfr"]
 
 [ext_resource type="PackedScene" uid="uid://kcwnpuk8s0e6" path="res://tray.tscn" id="1_based"]
 [ext_resource type="Script" uid="uid://dpnibc0wspx2m" path="res://table.gd" id="1_muxx0"]
 [ext_resource type="PackedScene" uid="uid://db6eele33vnlr" path="res://Resources/enemy_player.tscn" id="2_561jp"]
 [ext_resource type="Script" uid="uid://dy3ya6wpr7uid" path="res://Scripts/enemy_player_spawner.gd" id="2_x8wof"]
+[ext_resource type="Script" uid="uid://d0l5hesdkrm3l" path="res://Scripts/player_script.gd" id="4_ieyyn"]
 
 [node name="Table" type="CanvasLayer"]
 script = ExtResource("1_muxx0")
@@ -16,11 +17,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1101, 0.116093, 0.286357, 1)
 
-[node name="EnemyPlayerSpawner" type="Node2D" parent="."]
-position = Vector2(576, 187)
+[node name="EnemyPlayerSpawner" type="HBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -269.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
 script = ExtResource("2_x8wof")
 
 [node name="EnemyPlayer" parent="EnemyPlayerSpawner" instance=ExtResource("2_561jp")]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TableRect" type="ColorRect" parent="."]
 anchors_preset = 12
@@ -35,6 +46,7 @@ color = Color(0.828567, 0.729432, 0.836209, 1)
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(569.518, 448)
+script = ExtResource("4_ieyyn")
 
 [node name="Tray" parent="Player" instance=ExtResource("1_based")]
 

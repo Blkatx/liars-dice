@@ -1,21 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://db6eele33vnlr"]
+[gd_scene load_steps=5 format=3 uid="uid://db6eele33vnlr"]
 
 [ext_resource type="Texture2D" uid="uid://byq38hedylpcy" path="res://Images/TempPlayer.tres" id="1_0dkbx"]
 [ext_resource type="Script" uid="uid://cpugstd0i6edk" path="res://Resources/enemy_player_script.gd" id="1_pxnch"]
 [ext_resource type="Texture2D" uid="uid://bfwn33usert3l" path="res://Images/TempCup.tres" id="2_pxnch"]
 
-[node name="EnemyPlayer" type="Node2D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pxnch"]
+
+[node name="EnemyPlayer" type="Control" groups=["Players"]]
 texture_filter = 1
+custom_minimum_size = Vector2(125, 175)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -85.0
+offset_right = 62.5
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_pxnch")
-metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="Sprite2D" parent="."]
-position = Vector2(0, -40)
-scale = Vector2(10, 10)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Player Name"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 texture = ExtResource("1_0dkbx")
+expand_mode = 3
+stretch_mode = 5
 
-[node name="TextureRect2" type="Sprite2D" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pxnch")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/TextureRect/VBoxContainer"]
 z_index = 1
-position = Vector2(0, 24)
-scale = Vector2(3, 3)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
 texture = ExtResource("2_pxnch")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

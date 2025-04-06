@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 MultiplayerManager="*res://Scripts/multiplayer.gd"
 
+[global_group]
+
+Players="A group with all the players nodes"
+
 [input]
 
 throw={
